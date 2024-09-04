@@ -1,0 +1,1 @@
+common templates which can be reused anywhere
