@@ -1,13 +1,9 @@
-import { useState } from "react";
+import React from "react";
+import useRoutesCustom from "./hooks/useRoutesCustom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div className="text-3xl text-pink-700">Fiverr</div>
-    </>
-  );
+  const routes = useRoutesCustom();
+  return <>{routes}</>;
 }
 
 export default App;
