@@ -1,8 +1,11 @@
 import React from "react";
 import LogoIcon from "../Icons/LogoIcon";
 import FormSearchJobs from "../Form/FormSearchJobs";
+import { useDispatch } from "react-redux";
+import { openSignInForm, openSignUpForm } from "../../redux/authSlice";
 
-const HomeHeader = () => {
+const HomeHeader = ({ checkForm }) => {
+  const dispatch = useDispatch();
   return (
     <header className="py-5">
       <div className="container mx-auto">
@@ -20,17 +23,25 @@ const HomeHeader = () => {
               </a>
             </li>
             <li>
-              <a href="" className="hover:text-green-600 duration-300">
+              <button className="hover:text-green-600 duration-300" onClick={() => {
+                dispatch(openSignInForm(true));
+                checkForm(true);
+
+              }}>
                 Sign In
-              </a>
+              </button>
             </li>
             <li>
-              <a
+              <button
                 href=""
                 className="text-green-600 border border-green-600 py-2 px-4 rounded-md hover:bg-green-600 hover:text-white duration-300"
-              >
+                onClick={() => {
+                  dispatch(openSignUpForm(true));
+                  checkForm(false);
+                }}>
                 Join
-              </a>
+
+              </button>
             </li>
           </ul>
         </div>
