@@ -1,8 +1,10 @@
 export const path = {
   homePage: "/",
   //   pageNotFound: "*",
-  //   join: "/join",
-  //   signIn: "/sign-in",
+  signIn: "/sign-in",
+  signUp: "/sign-up",
   //   listJob: "/list-job",
-  //   adminPage: "/admin",
+  adminPage: "/admin",
+  adminLoginPage: "/admin/login",
+  createUser: "/admin/create-user"
 };

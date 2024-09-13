@@ -4,11 +4,12 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { useDispatch, useSelector } from 'react-redux'
 import { openSignInForm, openSignUpForm } from '../../redux/authSlice'
 import leftImage from "./../../assets/img/standard.0638957.png"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const FormSignIn = ({ checkForm }) => {
     const dispatch = useDispatch();
     const { isSignInOpen, isSignUpOpen } = useSelector((state) => state.authSlice);
+    const navigate = useNavigate();
 
     return (
         <Dialog open={isSignInOpen ? isSignInOpen : isSignUpOpen} onClose={openSignInForm ? openSignInForm : openSignUpForm} className="relative z-10 w-screen">
@@ -55,20 +56,33 @@ const FormSignIn = ({ checkForm }) => {
                                     }}>Join here</button></p>
                                 </div>
 
-                                <button className='px-5 py-2 rounded-md border w-full my-3 hover:bg-gray-200 flex justify-around items-center'> <i class="fa-brands fa-google"></i>Continue with Google
+                                <button type='button' className='px-5 py-2 rounded-md border w-full my-3 hover:bg-gray-200 flex justify-around items-center' onClick={() => {
+                                    window.location.href = "https://accounts.google.com/"
+                                }} ><i className="fa-brands fa-google" />
+                                    Continue with Google
                                 </button>
-                                <button className='px-5 py-2 rounded-md border w-full my-3 hover:bg-gray-200 flex justify-around items-center'><i class="fa-regular fa-envelope"></i>Continue with email/username</button>
+                                <button className='px-5 py-2 rounded-md border w-full my-3 hover:bg-gray-200 flex justify-around items-center' onClick={() => {
+                                    setTimeout(() => {
+                                        navigate("/sign-in")
+                                    }, 1000)
+                                }}><i className="fa-regular fa-envelope" />
+                                    Continue with email/username</button>
                                 <div className='text-center mt-4 mb-1'><span className='text-xs text-gray-400'>OR</span></div>
                                 <br />
                                 <div className='grid grid-cols-2 gap-2'>
-                                    <button className='px-5 py-2 rounded-md my-3 me-1 border hover:bg-gray-200 w-full flex justify-around items-center'><i class="fa-brands fa-apple"></i>Apple</button>
-                                    <button className='px-5 py-2 rounded-md my-3 border hover:bg-gray-200 w-full flex justify-around items-center'><i class="fa-brands fa-facebook-f"></i>Facebook</button>
+                                    <button className='px-5 py-2 rounded-md my-3 me-1 border hover:bg-gray-200 w-full flex justify-around items-center' onClick={() => {
+                                        window.location.href = "https://www.icloud.com//"
+                                    }} ><i className="fa-brands fa-apple" />
+                                        Apple</button>
+                                    <button onClick={() => {
+                                        window.location.href = "https://www.facebook.com/"
+                                    }} className='px-5 py-2 rounded-md my-3 border hover:bg-gray-200 w-full flex justify-around items-center'><i className="fa-brands fa-facebook-f" />
+                                        Facebook</button>
                                 </div>
                             </div>
                             <div>
-                                <p className='text-xs leading-[20px] text-gray-400'>By joining, you agree to the Fiverr <Link className='underline' to={"/terms-of-service"}>Terms of Service</Link> and to occasionally receive emails from us. Please read our <Link className='underline' to={"/privacy-policy"}>Privacy Policy</Link> to learn how we use your personal data.</p>
+                                <p className='text-xs leading-[20px] text-gray-400'>By joining, you agree to the Fiverr <Link className='underline' to={"/"}>Terms of Service</Link> and to occasionally receive emails from us. Please read our <Link className='underline' to={"/"}>Privacy Policy</Link> to learn how we use your personal data.</p>
                             </div>
-
                         </div>
 
                     </DialogPanel>
@@ -76,6 +90,7 @@ const FormSignIn = ({ checkForm }) => {
             </div>
         </Dialog>
     )
+
 }
 
 export default FormSignIn

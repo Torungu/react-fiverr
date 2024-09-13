@@ -23,16 +23,15 @@ const HomeHeader = ({ checkForm }) => {
               </a>
             </li>
             <li>
-              <button className="hover:text-green-600 duration-300" onClick={() => {
+              <button type="button" className="hover:text-green-600 duration-300" onClick={() => {
                 dispatch(openSignInForm(true));
                 checkForm(true);
-
               }}>
                 Sign In
               </button>
             </li>
             <li>
-              <button
+              <button type="button"
                 href=""
                 className="text-green-600 border border-green-600 py-2 px-4 rounded-md hover:bg-green-600 hover:text-white duration-300"
                 onClick={() => {
@@ -40,7 +39,6 @@ const HomeHeader = ({ checkForm }) => {
                   checkForm(false);
                 }}>
                 Join
-
               </button>
             </li>
           </ul>
