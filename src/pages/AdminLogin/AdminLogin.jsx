@@ -34,7 +34,7 @@ const AdminLogin = () => {
                 else {
                     setLocalStorage('user', res.data.content);
                     dispatch(getInfoUser(res.data.content));
-                    navigate("/admin");
+                    navigate("/admin/manager-user");
                 }
             }).catch((err) => {
                 console.log(err);

@@ -31,21 +31,19 @@ const CreateUser = () => {
     }, [])
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(valueUser)
         nguoidungService.createUser(valueUser).then((res) => {
-            console.log(res);
+            // console.log(res);
             setStep(step + 1);
-            // let tmpData = {
-            //     email: res.data.content.email,
-            //     password: res.data.content.password
-            // };
-            // authService.signIn(tmpData).then((ress) => {
-            //     console.log(res);
-            //     setLocalStorage("tmpUserData", ress);
-            // }).catch((errr) => {
-            //     console.log(errr);
-
-            // })
+            let tmpData = {
+                email: res.data.content.email,
+                password: res.data.content.password
+            };
+            authService.signIn(tmpData).then((ress) => {
+                console.log(ress.data.content);
+                setLocalStorage("tmpUserData", ress.data.content);
+            }).catch((errr) => {
+                console.log(errr);
+            })
         }).catch((err) => {
             console.log(err);
         })
@@ -57,10 +55,8 @@ const CreateUser = () => {
         //Chuyển đổi dữ liệu vào formData (Liên quan đến hình và file dính đến thằng này)
         let formData = new FormData();
         formData.append("formFile", avatar.file);
-
-
-
-        let { token } = infoTmp
+        // let { token } = JSON.parse(localStorage.getItem('tmpUserData'));
+        let { token } = getLocalStorage("tmpUserData");
         console.log(token);
 
         nguoidungService.uploadAvatar(token, formData).then((res) => {
@@ -69,8 +65,6 @@ const CreateUser = () => {
         }).catch((err) => {
             console.log(err);
         })
-
-
     }
 
 
@@ -103,7 +97,7 @@ const CreateUser = () => {
                                     const [year, month, day] = event.target.value.split('-');
 
                                     const valueDate = `${day}-${month}-${year}`;
-                                    console.log(valueDate);
+                                    // console.log(valueDate);
                                     setValueUser({ ...valueUser, birthday: valueDate });
                                 }} />
                             </div>

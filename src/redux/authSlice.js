@@ -4,6 +4,7 @@ import { getLocalStorage } from '../utils/localStorage';
 const initialState = {
     isSignUpOpen: false,
     isSignInOpen: false,
+    isEditFormOpen: false,
     infoUser: getLocalStorage("user"),
     infoTmp: getLocalStorage("tmpUserData")
 
@@ -19,6 +20,9 @@ const authSlice = createSlice({
         openSignInForm: (state, action) => {
             state.isSignInOpen = action.payload;
         },
+        openEditForm: (state, action) => {
+            state.isEditFormOpen = action.payload
+        },
         getInfoUser: (state, action) => {
             state.infoUser = action.payload;
         },
@@ -28,6 +32,6 @@ const authSlice = createSlice({
     }
 });
 
-export const { openSignUpForm, openSignInForm, getInfoUser, getInfoTmp } = authSlice.actions
+export const { openSignUpForm, openSignInForm, openEditForm, getInfoUser, getInfoTmp } = authSlice.actions
 
 export default authSlice.reducer

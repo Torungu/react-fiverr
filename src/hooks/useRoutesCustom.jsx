@@ -15,6 +15,7 @@ const FormInputSignIn = React.lazy(() => import("../components/Form/FormInputSig
 import FormInputSignUp from "../components/Form/FormInputSignUp";
 import animationLoading from "./../assets/animation/LoadingAnimation.json"
 import Lottie, { useLottie } from "lottie-react";
+import FormEditUser from "../components/Form/FormEditUser";
 
 const useRoutesCustom = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -46,9 +47,15 @@ const useRoutesCustom = () => {
       element: <AdminTemplate />,
       children: [
         {
-          index: true,
-          // path: "manager-user",
-          element: <Suspense fallback={<Skeleton />}><ManagerUser /></Suspense>
+          // index: true,
+          path: "manager-user",
+          element: <Suspense fallback={<Skeleton />}><ManagerUser /></Suspense>,
+          children: [
+            {
+              index: true,
+              element: <FormEditUser />
+            }
+          ]
         },
         {
           path: path.createUser,

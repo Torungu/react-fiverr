@@ -13,7 +13,7 @@ import { useLottie } from 'lottie-react'
 const FormInputSignIn = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { showNotification } = useContext(NotificationContext)
+    const { showNotification } = useContext(NotificationContext);
     const options = {
         animationData: animationSignIn,
         loop: true

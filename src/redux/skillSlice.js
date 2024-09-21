@@ -5,14 +5,12 @@ export const getAllSkillApi = createAsyncThunk(
     "skill/getAllSkillApi",
     async () => {
         const response = await skillService.getAllSkill();
-        console.log(response);
-
+        // console.log(response);
         return response.data.content;
     }
 )
 const initialState = {
     listSkill: []
-
 }
 
 const skillSlice = createSlice({
@@ -24,7 +22,7 @@ const skillSlice = createSlice({
             state.listSkill = action.payload
         });
         builder.addCase(getAllSkillApi.rejected, (state, action) => {
-            console.log(action);
+            // console.log(action);
         });
     }
 });

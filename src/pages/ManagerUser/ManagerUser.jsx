@@ -1,14 +1,17 @@
 import React, { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Space, Table, Tag } from 'antd';
+import { notification, Space, Table, Tag } from 'antd';
 import { nguoidungService } from '../../service/nguoidung.service';
 import { Logger } from 'sass';
 import { NotificationContext } from '../../App';
 import { getValueUserApi } from '../../redux/nguoiDungSlice';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { openEditForm } from '../../redux/authSlice';
 
 
 const ManagerUser = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { showNotification } = useContext(NotificationContext);
     const { listNguoiDung } = useSelector(state => state.nguoiDungSlice);
 
@@ -68,7 +71,9 @@ const ManagerUser = () => {
                             showNotification(err.response.data.message || err.response.data.content, 'error')
                         })
                     }}>Xóa</button>
-                    <button className='bg-yellow-500/85 text-white py-2 px-5 hover:animate-pulse'>Sửa</button>
+                    <button className='bg-yellow-500/85 text-white py-2 px-5 hover:animate-pulse' onClick={() => {
+                        dispatch(openEditForm(true));
+                    }}>Sửa</button>
                 </Space>
             ),
         },
@@ -77,6 +82,7 @@ const ManagerUser = () => {
     return (
         <div>
             <Table columns={columns} dataSource={listNguoiDung} />
+            <Outlet />
         </div>
     )
 }

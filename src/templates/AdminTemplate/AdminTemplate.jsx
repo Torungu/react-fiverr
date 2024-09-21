@@ -26,7 +26,7 @@ const AdminTemplate = () => {
                         {
                             key: '1',
                             icon: <UserOutlined />,
-                            label: <Link to={"/admin"}>Người dùng</Link>,
+                            label: <Link to={"/admin/manager-user"}>Người dùng</Link>,
                             // Có thể truyền chuỗi hoặc truyền thẳng thẻ link truyền đến component mong muốn vào luôn
                         },
                         {
