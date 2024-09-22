@@ -1,11 +1,14 @@
 import React from "react";
 import LogoIcon from "../Icons/LogoIcon";
 import FormSearchJobs from "../Form/FormSearchJobs";
+import { useDispatch } from "react-redux";
+import { openSignInForm, openSignUpForm } from "../../redux/authSlice";
 import WrapperSuggestJob from "../Wrapper/WrapperSuggestJob";
 import { Link } from "react-router-dom";
 import { path } from "../../common/path";
 
-const HomeHeader = ({ wrapper }) => {
+const HomeHeader = ({ checkForm, wrapper }) => {
+  const dispatch = useDispatch();
   return (
     <header className="py-5">
       <div className="container mx-auto">
@@ -38,22 +41,35 @@ const HomeHeader = ({ wrapper }) => {
           </div>
           <ul className="list-none flex items-center justify-between space-x-5 font-semibold">
             <li>
-              <a href="" className="hover:text-green-600 duration-300">
+              <Link className="hover:text-green-600 duration-300">
                 Become a Seller
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="" className="hover:text-green-600 duration-300">
+              <Link
+                type="button"
+                className="hover:text-green-600 duration-300"
+                onClick={() => {
+                  dispatch(openSignInForm(true));
+                  checkForm(true);
+                }}
+                to={path.signIn}
+              >
                 Sign In
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href=""
+              <Link
+                type="button"
                 className="text-green-600 border border-green-600 py-2 px-4 rounded-md hover:bg-green-600 hover:text-white duration-300"
+                onClick={() => {
+                  dispatch(openSignUpForm(true));
+                  checkForm(false);
+                }}
+                to={path.signUp}
               >
                 Join
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

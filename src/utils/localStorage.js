@@ -5,6 +5,5 @@ export function setLocalStorage(key, value) {
 
 export function getLocalStorage(key) {
   const dataLocal = localStorage.getItem(key);
-
   return dataLocal ? JSON.parse(dataLocal) : null;
 }
