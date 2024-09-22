@@ -1,17 +1,40 @@
 import React from "react";
 import LogoIcon from "../Icons/LogoIcon";
 import FormSearchJobs from "../Form/FormSearchJobs";
+import WrapperSuggestJob from "../Wrapper/WrapperSuggestJob";
+import { Link } from "react-router-dom";
+import { path } from "../../common/path";
 
-const HomeHeader = () => {
+const HomeHeader = ({ wrapper }) => {
   return (
     <header className="py-5">
       <div className="container mx-auto">
         <div className="header_content flex items-center justify-between">
           <div className="header_logo flex items-center space-x-5">
-            <a>
+            <Link to={path.homePage}>
               <LogoIcon width={89} height={27} />
-            </a>
-            <FormSearchJobs />
+            </Link>
+            {wrapper ? (
+              <div className="border rounded-md">
+                <WrapperSuggestJob>
+                  <FormSearchJobs
+                    bgForm={"bg-white rounded-md"}
+                    bgButton={"bg-black"}
+                    textButton={"text-white"}
+                  />
+                </WrapperSuggestJob>
+              </div>
+            ) : (
+              <div className="border rounded-md invisible">
+                <WrapperSuggestJob>
+                  <FormSearchJobs
+                    bgForm={"bg-white rounded-md"}
+                    bgButton={"bg-black"}
+                    textButton={"text-white"}
+                  />
+                </WrapperSuggestJob>
+              </div>
+            )}
           </div>
           <ul className="list-none flex items-center justify-between space-x-5 font-semibold">
             <li>

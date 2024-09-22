@@ -1,8 +1,7 @@
 export const path = {
   homePage: "/",
-  //   pageNotFound: "*",
-  //   join: "/join",
-  //   signIn: "/sign-in",
-  //   listJob: "/list-job",
-  //   adminPage: "/admin",
+  join: "/join",
+  listJob: "/danh-sach-cong-viec",
+  typeJob: "/danh-sach-loai-cong-viec",
+  detailJob: "/cong-viec-chi-tiet",
 };
