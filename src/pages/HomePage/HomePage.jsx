@@ -63,7 +63,7 @@ const HomePage = ({ checkForm }) => {
           </p>
           <video controls className="rounded-lg h-1/2 w-full">
             <source
-              src="/src/assets/video/Vontelle Cutdown- Breakthrough V5.mp4"
+              src="/assets/video/Vontelle Cutdown- Breakthrough V5.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.

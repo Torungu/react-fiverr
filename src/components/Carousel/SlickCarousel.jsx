@@ -20,49 +20,49 @@ const SlickCarousel = () => {
       <Slider {...settings}>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/architecture-design.png"}
+            imgSrc={"/assets/img/architecture-design.png"}
             bgClr={"bg-pink-900"}
             textTitle={"Architecture & Interior Design"}
           />
         </div>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/data-science.png"}
+            imgSrc={"/assets/img/data-science.png"}
             bgClr={"bg-orange-900"}
             textTitle={"Data Science & ML"}
           />
         </div>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/e-commerce.png"}
+            imgSrc={"/assets/img/e-commerce.png"}
             bgClr={"bg-green-900"}
             textTitle={"E-Commerce Marketing"}
           />
         </div>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/logo-design.png"}
+            imgSrc={"/assets/img/logo-design.png"}
             bgClr={"bg-orange-300"}
             textTitle={"Logo Design"}
           />
         </div>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/seo.png"}
+            imgSrc={"/assets/img/seo.png"}
             bgClr={"bg-green-900"}
             textTitle={"SEO"}
           />
         </div>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/video-editing.png"}
+            imgSrc={"/assets/img/video-editing.png"}
             bgClr={"bg-pink-600"}
             textTitle={"Video Editing"}
           />
         </div>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/product-photography.png"}
+            imgSrc={"/assets/img/product-photography.png"}
             bgClr={"bg-green-600"}
             textTitle={"Product Photography"}
           />
@@ -70,14 +70,14 @@ const SlickCarousel = () => {
 
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/social-media-marketing.png"}
+            imgSrc={"/assets/img/social-media-marketing.png"}
             bgClr={"bg-yellow-700"}
             textTitle={"Social Media Marketing"}
           />
         </div>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/software-development.png"}
+            imgSrc={"/assets/img/software-development.png"}
             bgClr={"bg-green-300"}
             textTitle={"Software Development"}
           />
@@ -85,14 +85,14 @@ const SlickCarousel = () => {
 
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/voice-over.png"}
+            imgSrc={"/assets/img/voice-over.png"}
             bgClr={"bg-orange-600"}
             textTitle={"Voice Over"}
           />
         </div>
         <div>
           <HomeCard
-            imgSrc={"/src/assets/img/website-development.png"}
+            imgSrc={"/assets/img/website-development.png"}
             bgClr={"bg-green-600"}
             textTitle={"Website Development"}
           />
