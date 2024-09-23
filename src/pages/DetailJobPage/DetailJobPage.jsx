@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import HomeFooter from "../../components/Footers/HomeFooter";
 import HomeHeader from "../../components/Headers/HomeHeader";
 import HomeMenu from "../../components/Contents/HomeMenu";
-import { useSearchParams } from "react-router-dom";
+import { path } from "../../common/path";
+import { Link, useSearchParams } from "react-router-dom";
 import { congViecService } from "../../service/congViec.service";
 import { binhLuanService } from "../../service/binhLuan.service";
 import Sticky from "react-stickynode";
@@ -77,8 +78,8 @@ const DetailJobPage = () => {
             />
           </div>
           <Sticky bottomBoundary={1200}>
-            <div className="border rounded-md p-5 space-y-3">
-              <ul className="space-y-2 ">
+            <div className="border rounded-md p-5 space-y-3 h-fit">
+              <ul className="space-y-2">
                 <h1 className="text-2xl font-bold uppercase">We Offers:</h1>
                 {jobDetails?.congViec.moTaNgan
                   .split("\r\n")
@@ -93,9 +94,11 @@ const DetailJobPage = () => {
                     </li>
                   ))}
               </ul>
-              <button className=" text-white bg-green-600 px-2 py-3 rounded-md">
-                Continue: {jobDetails?.congViec.giaTien} $
-              </button>
+              <Link to={path.signUp}>
+                <button className="text-white bg-green-600 px-2 py-3 rounded-md mt-5">
+                  Continue: {jobDetails?.congViec.giaTien} $
+                </button>
+              </Link>
             </div>
           </Sticky>
         </div>

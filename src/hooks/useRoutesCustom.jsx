@@ -45,18 +45,6 @@ const useRoutesCustom = () => {
       ],
     },
     {
-      path: path.listJob,
-      element: <ListJobPage />,
-    },
-    {
-      path: path.typeJob,
-      element: <TypeJobPage />,
-    },
-    {
-      path: path.detailJob,
-      element: <DetailJobPage />,
-    },
-    {
       path: path.signIn,
       element: (
         <Suspense
@@ -112,6 +100,18 @@ const useRoutesCustom = () => {
           <AdminLogin />
         </Suspense>
       ),
+    },
+    {
+      path: path.listJob,
+      element: <ListJobPage />,
+    },
+    {
+      path: path.typeJob,
+      element: <TypeJobPage />,
+    },
+    {
+      path: path.detailJob,
+      element: <DetailJobPage />,
     },
   ]);
   return routes;

@@ -41,8 +41,11 @@ const HomeHeader = ({ checkForm, wrapper }) => {
           </div>
           <ul className="list-none flex items-center justify-between space-x-5 font-semibold">
             <li>
-              <Link className="hover:text-green-600 duration-300">
-                Become a Seller
+              <Link
+                className="hover:text-green-600 duration-300"
+                to={path.adminLoginPage}
+              >
+                Become an Admin
               </Link>
             </li>
             <li>
@@ -53,7 +56,6 @@ const HomeHeader = ({ checkForm, wrapper }) => {
                   dispatch(openSignInForm(true));
                   checkForm(true);
                 }}
-                to={path.signIn}
               >
                 Sign In
               </Link>
@@ -66,7 +68,6 @@ const HomeHeader = ({ checkForm, wrapper }) => {
                   dispatch(openSignUpForm(true));
                   checkForm(false);
                 }}
-                to={path.signUp}
               >
                 Join
               </Link>

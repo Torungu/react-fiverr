@@ -4,8 +4,9 @@ import HomeFooter from "../../components/Footers/HomeFooter";
 import HomeCarousel from "../../components/Carousel/HomeCarousel";
 import SlickCarousel from "../../components/Carousel/SlickCarousel";
 import HomeMenu from "../../components/Contents/HomeMenu";
+import { Outlet } from "react-router-dom";
 
-const HomePage = () => {
+const HomePage = ({ checkForm }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const handleScroll = () => {
@@ -26,11 +27,12 @@ const HomePage = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <>
       <div className="home-header">
         <div className="border-b">
-          <HomeHeader wrapper={showSearch} />
+          <HomeHeader wrapper={showSearch} checkForm={checkForm} />
         </div>
         {showMenu ? (
           <div className="border-b">
@@ -42,6 +44,7 @@ const HomePage = () => {
           </div>
         )}
       </div>
+      <Outlet />
       <div className="pt-[120px]">
         <HomeCarousel />
       </div>
