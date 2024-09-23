@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// NV1 : Coi và setup lại một axios custom xử lí gọi API cho dự án Fiverr
 export const http = axios.create({
   baseURL: "https://fiverrnew.cybersoft.edu.vn/api",
   timeout: 30000,

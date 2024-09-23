@@ -3,8 +3,10 @@ export const path = {
   //   pageNotFound: "*",
   signIn: "/sign-in",
   signUp: "/sign-up",
-  //   listJob: "/list-job",
   adminPage: "/admin",
   adminLoginPage: "/admin/login",
-  createUser: "/admin/create-user"
+  createUser: "/admin/create-user",
+  listJob: "/danh-sach-cong-viec",
+  typeJob: "/danh-sach-loai-cong-viec",
+  detailJob: "/cong-viec-chi-tiet",
 };

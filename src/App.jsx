@@ -1,9 +1,10 @@
 import React from "react";
 import useRoutesCustom from "./hooks/useRoutesCustom";
-import { Bounce, ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { DataProvider } from "./hooks/useData";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export const NotificationContext = React.createContext()
+export const NotificationContext = React.createContext();
 
 function App() {
   const routes = useRoutesCustom();
@@ -17,14 +18,18 @@ function App() {
       progress: undefined,
       theme: "light",
       transition: Bounce,
-    })
-  }
-  return <>
-    <NotificationContext.Provider value={{ showNotification: showNotification }}>
-      <ToastContainer />
-      {routes}
-    </NotificationContext.Provider>
-  </>;
+    });
+  };
+  return (
+    <>
+      <NotificationContext.Provider
+        value={{ showNotification: showNotification }}
+      >
+        <ToastContainer />
+        <DataProvider>{routes}</DataProvider>
+      </NotificationContext.Provider>
+    </>
+  );
 }
 
 export default App;
