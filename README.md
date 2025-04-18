@@ -2,4 +2,4 @@
 
 ## ~ Stats:
 
-<img src="src\assets\stats\fiverr-team-stats.png" width="75%" align="center">
+
